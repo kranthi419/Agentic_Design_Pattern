@@ -1,5 +1,5 @@
 
-
+# todo: https://github.com/andrewyng/aisuite - use this as a framework for LLM Client.
 def completions_create(client, messages: list, model: str) -> str:
     """
     Sends a request to the client's 'completions.create' method to interact with the language model.
