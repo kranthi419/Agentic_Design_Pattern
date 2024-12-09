@@ -136,3 +136,27 @@ class ReflectionAgent:
             update_chat_history(reflection_history, critique, "assistant")
 
         return generation
+
+
+if __name__ == "__main__":
+    print("\n\nInitializing the Reflection Agent ...\n\n")
+    agent = ReflectionAgent()
+
+    generation_system_prompt = "You are a Python programmer tasked with generating high quality Python code"
+    print(f"\n\nGeneration System Prompt: {generation_system_prompt}\n\n")
+
+    reflection_system_prompt = "You are Andrej Karpathy, an experienced computer scientist"
+    print(f"\n\nReflection System Prompt: {reflection_system_prompt}\n\n")
+
+    user_msg = "Generate a Python implementation of call graph generation script"
+    print(f"\n\nUser Message: {user_msg}\n\n")
+
+    print("\n\nRunning the Reflection Agent ...\n\n")
+    final_response = agent.run(
+        user_msg=user_msg,
+        generation_system_prompt=generation_system_prompt,
+        reflection_system_prompt=reflection_system_prompt,
+        n_steps=5,
+        verbose=1,
+    )
+    print(f"\n\nFinal Response: {final_response}\n\n")
