@@ -16,7 +16,7 @@ def get_fn_signature(fn: Callable) -> dict:
         "parameters": {"properties": {}}
     }
 
-    schema = {k: {"type": v.__name__} for k, v in fn.__annotations__.items()}
+    schema = {k: {"type": v.__name__} for k, v in fn.__annotations__.items() if k != "return"}
     fn_signature["parameters"]["properties"] = schema
     return fn_signature
 
